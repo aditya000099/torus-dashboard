@@ -1,6 +1,4 @@
-const tailwindcssAnimate = require("tailwindcss-animate");
-const { fontFamily } = require("tailwindcss/defaultTheme")
-
+/** @type {import('tailwindcss').Config} */
 export default {
     darkMode: ["class"],
     content: ["./index.html", "./src/**/*.{ts,tsx,js,jsx}"],
@@ -54,7 +52,7 @@ export default {
                 sm: "calc(var(--radius) - 4px)",
             },
             fontFamily: {
-                sans: ["var(--font-sans)", ...fontFamily.sans],
+                sans: ['Inter', 'sans-serif'],
             },
             keyframes: {
                 "accordion-down": {
@@ -72,5 +70,8 @@ export default {
             },
         },
     },
-    plugins: [tailwindcssAnimate],
-};
+    plugins: [
+        // @ts-ignore
+        import('tailwindcss-animate')
+    ],
+}
